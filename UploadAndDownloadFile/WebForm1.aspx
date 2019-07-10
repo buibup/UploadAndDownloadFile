@@ -35,6 +35,28 @@
                 <SortedDescendingHeaderStyle BackColor="#7E0000" />
             </asp:GridView>
         </div>
+        <div></div>
+        <div>
+            <asp:Repeater ID="rptFileList" runat="server" OnItemDataBound="rptFileList_ItemDataBound">
+                <HeaderTemplate>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lnkBtn" runat="server" CommandName="Download" CommandArgument='<%# Eval("FilePath")%>' Text='<%# Eval("File") %>' OnClick="lnkBtn_Clicked"></asp:LinkButton>
+                            </td>
+                            <td>
+                                <asp:Literal ID="ltrFileSize" runat="server"></asp:Literal>
+                            </td>
+                            <td>
+                                <asp:Literal ID="ltrFileType" runat="server"></asp:Literal>
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </form>
 </body>
 </html>
